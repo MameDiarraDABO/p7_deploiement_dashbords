@@ -18,7 +18,8 @@ df = pd.read_csv("TEST_FINAL_SCALE_2.csv")
 print(df.shape)
 df1 = df.copy()
 df1 = df1.drop(['SK_ID_CURR'], axis=1)
-#Xclient = pd.read_csv("Base_Clients_scale.csv")
+data = pd.read_csv("donnee_entree.csv")
+data  = data.drop(['SK_ID_CURR'], axis=1)
 
 #Télécharger modele
 model = pickle.load(open('Credit_model_reg.pkl','rb'))
