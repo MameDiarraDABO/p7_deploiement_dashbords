@@ -59,7 +59,7 @@ st.markdown(html_temp, unsafe_allow_html=True)
 
 #affichage formulaire
 #st.title('Dashboard Scoring Credit')
-st.markdown("Prédictions de scoring client, notre seuil de choix est de 34 %.")
+st.markdown("Prédictions de scoring client, notre seuil de choix est de 50 %.")
 hobby = st.selectbox(" Veuillez choisir un identifiant à saisir: ", liste_id)
 
 
