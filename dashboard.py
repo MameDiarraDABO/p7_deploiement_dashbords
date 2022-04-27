@@ -16,6 +16,8 @@ import plotly.express as px
 
 df = pd.read_csv("TEST_FINAL_SCALE_2.csv")
 print(df.shape)
+df1 = df.copy()
+df1 = df1.drop(['SK_ID_CURR'], axis=1)
 #Xclient = pd.read_csv("Base_Clients_scale.csv")
 
 #Télécharger modele
@@ -110,7 +112,7 @@ elif (int(id_input) in liste_id):
 
     explainer1=lime_tabular.LimeTabularExplainer(
     training_data = num,
-    feature_names=df.columns,
+    feature_names=df1.columns,
     class_names=['Crédit Accepté','Crédit Refusé'],
     mode='classification',
     discretize_continuous=False
