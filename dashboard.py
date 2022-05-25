@@ -14,7 +14,14 @@ import dill
 import plotly.graph_objects as go
 import plotly.express as px
 
+# packages
+from flask import Flask, request, jsonify, render_template
+import urllib
+from urllib.request import urlopen
+import requests
+
 df = pd.read_csv("TEST_FINAL_SCALE_2.csv")
+df = df.iloc[0:1000, :]
 print(df.shape)
 df1 = df.copy()
 df1 = df1.drop(['SK_ID_CURR'], axis=1)
@@ -78,6 +85,11 @@ if id_input not in liste_id:
 
 
 elif (int(id_input) in liste_id):
+    response = urlopen("https://app-api-2022.herokuapp.com/prediction/client/" + str(id_input))
+    data_json = json.loads(response.read())
+    hello = str(data_json["hello"])
+    st.write(hello)
+                
     i = df['SK_ID_CURR']==id_input
     Y = df[i]
     Y = Y.drop(['SK_ID_CURR'], axis=1)
