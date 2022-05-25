@@ -84,7 +84,7 @@ if id_input not in liste_id:
     st.write("L'identifiant client n'est pas bon")
 
 
-elif:
+else:
     #(int(id_input) in liste_id)
     response = urlopen("https://app-api-2022.herokuapp.com/prediction/client/" + str(id_input))
     data_json = json.loads(response.read())
